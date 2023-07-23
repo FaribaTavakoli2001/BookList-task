@@ -80,32 +80,32 @@ link.addEventListener('click', function (e) {
 
 })
 
-// document.addEventListener('DOMContentLoaded', function (e) {
-//     let tasks;
-//     if (localStorage.getItem('tasks') === null) {
+document.addEventListener('DOMContentLoaded', function (e) {
+    let tasks;
+    if (localStorage.getItem('tasks') === null) {
 
-//         tasks = [];
+        tasks = [];
 
-//     }
-//     else {
-//         tasks = localStorage.getItem('tasks').split(',');
-//     }
-//     for (let item of tasks) {
+    }
+    else {
+        tasks = localStorage.getItem('tasks').split(',');
+    }
+    for (let item of tasks) {
 
-//         const spanName = document.createElement('span');
-//         spanName.className = 'name';
-//         spanName.innerHTML = item;
+        const spanName = document.createElement('span');
+        spanName.className = 'name';
+        spanName.innerHTML = item;
 
-//         const li = document.createElement('li');
-//         li.appendChild(spanName);
-//         li.innerHTML += buttondelete;
+        const li = document.createElement('li');
+        li.appendChild(spanName);
+        li.innerHTML += buttondelete;
 
-//         ul.appendChild(li);
+        ul.appendChild(li);
 
-//     }
+    }
 
 
-// })
+})
 
 // localStorage.clear()
 
