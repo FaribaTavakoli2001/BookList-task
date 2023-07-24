@@ -5,28 +5,33 @@ const ul = document.querySelector('ul');
 
 ul.addEventListener('click', function (e) {
     if (e.target.className === 'delete') {
-        e.target.parentElement.remove()
+        e.target.parentElement.remove();
         removeFormLocalStorage(e.target.parentElement.children[0].textContent);
 
     }
 })
 
 
-// function removeFormLocalStorage(task) {
-//     let tasks;
-//     if (localStorage.getItem('tasks') === null) {
-//         tasks = [];
-//     } else {
-//         tasks = localStorage.getItem('tasks').split(',');
-//     }
-//     for (let i = 0; i < tasks.length; i++) {
-//         if (tasks[i] === task) {
-//             tasks.splice(i, 1);
-//         }
-//     }
+function removeFormLocalStorage(task) {
+    let tasks;
+    if (localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
+        tasks = localStorage.getItem('tasks').split(',');
+    }
+    for (let i = 0; i < tasks.length; i++) {
+        if (tasks[i] === task) {
+            tasks.splice(i, 1);
+        }
+    }
+    if (tasks.length === 0) {
+        localStorage.clear();
+    } else {
 
-//     localStorage.setItem('tasks', tasks);
-// }
+        localStorage.setItem('tasks', tasks);
+    }
+
+}
 
 
 const checkbox = document.querySelector('#hide input');
@@ -39,7 +44,12 @@ checkbox.addEventListener('change', function (e) {
 
     }
     e.preventDefault();
+
 })
+
+
+
+
 
 const searchbox = document.querySelector('#search-books input')
 
@@ -72,11 +82,11 @@ link.addEventListener('click', function (e) {
 
     ul.appendChild(li);
 
-    inputText.value = '';
     e.preventDefault();
 
-
     storeToLocalStorage(inputText.value);
+
+    inputText.value = '';
 
 })
 
@@ -103,8 +113,6 @@ document.addEventListener('DOMContentLoaded', function (e) {
         ul.appendChild(li);
 
     }
-
-
 })
 
 // localStorage.clear()
